@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: black;
+            margin: 0;
+            margin-top: 10px;
+            padding: 0;
+            background-color: rgb(246, 246, 246);
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+
+        #navbar {
+            display: flex;
+            background-color: rgb(255, 255, 255);
+            align-items: center;
+            justify-content: center;
+            height: 8vh;
+            position: sticky;
+            top: 0px;
+        }
+
+        .navLogo {
+            position: absolute;
+            left: 5vw;
+            font-size: 22px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+
+        .navItems {
+            margin-left: 6vw;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+
+        }
+
+        .navItems:hover {
+            color: rgb(0, 98, 255);
+            cursor: pointer;
+        }
+
+        .navIcons {
+            position: absolute;
+            right: 10vw;
+        }
+
+        .navProfile {
+            position: absolute;
+            right: 2vw;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+        }
+
+        #searchBar {
+            display: flex;
+            background-color: white;
+            align-items: center;
+            width: 94vw;
+            margin: auto;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #searchTags {
+            margin-left: 20px;
+            padding-right: 10vw;
+        }
+
+        #searchTags img {
+            width: 16px;
+            height: 16px;
+            position: relative;
+            top: 3px;
+        }
+
+        .tags {
+            margin-left: 10px;
+            border: 1px solid grey;
+            padding: 5px;
+            color: rgb(0, 98, 255);
+            font-weight: bolder;
+            font-size: 14px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #rectangle{
+            border: 1px solid black;
+            height: 17px;
+            width: 22px;
+            margin-left: 10px;
+        }
+
+
+        .location {
+            border-left: 1px solid grey;
+            border-right: 1px solid grey;
+            height: 6vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 130px;
+        }
+
+        .location img {
+            width: 16px;
+            height: 16px;
+            position: relative;
+            top: 1px;
+            margin-right: 10px;
+        }
+
+        .searchJob img {
+            width: 16px;
+            height: 16px;
+            position: relative;
+            top: 1px;
+            margin-right: 10px;
+        }
+
+        .searchJob {
+            border-right: 1px solid grey;
+            height: 6vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 100px;
+        }
+
+        .searchSalary {
+
+            height: 6vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 100px;
+        }
+
+        .searchSalary img {
+            width: 16px;
+            height: 16px;
+            position: relative;
+            top: 1px;
+            margin-right: 10px;
+        }
+
+        #searchBar button {
+            position: absolute;
+            right: 2vw;
+            background-color: rgb(0, 98, 255);
+            color: white;
+            padding: 11px;
+            font-weight: bold;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+            
+
+        }
+
+        #rightConatiner {
+            width: 75%;
+            float: right;
+        }
+
+        #cardContainer {
+            margin-left: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .card {
+            width: 20vw;
+            line-height: 1.3em;
+            background-color: white;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+       .navProfile img{
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+       }
+       .navProfile span{
+        position: relative;
+        bottom: 10px;
+       }
+        .card:hover{
+
+            cursor: pointer;
+            zoom: 1.02;
+            transition: 0.5s;
+
+        }
+
+        .card img {
+            height: 35px;
+            width: 35px;
+            margin-top: 10px;
+        }
+
+        .card>button {
+            color: rgb(0, 98, 255);
+            font-weight: bold;
+            border: none;
+            padding: 8px;
+            margin-left: 4px;
+        }
+
+        .cardButton {
+            display: flex;
+        }
+
+        .cardButton button {
+            padding: 5px;
+            padding-left: 25px;
+            padding-right: 25px;
+            margin: 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .cb1 {
+            background-color: rgb(0, 98, 255);
+            color: white;
+        }
+
+        #rightConatiner h3 {
+            margin-left: 50px;
+        }
+        #leftContainer{
+
+            width: 25%;
+            background-color: white;
+            padding: 20px;
+        }
+        .emptype{
+
+            margin-top: 10px;
+        }
+        .emptype input{
+            width: 3vw;
+            /* height: 1vh; */
+        }
+        .emptype .numbers{
+            background-color: rgba(218, 218, 218, 0.585);
+            padding: 5px;
+            font-size: 1.7vh;
+            position: absolute;
+            right: 74vw;
+        }
+        .type{
+            font-size: 13px;
+        }
+        #alert{
+            
+            display: flex;
+            flex-direction: column;
+            padding: 14px;
+            background-color: rgb(228, 239, 249);
+        }
+        #alert input{
+            height: 6vh;
+            border-radius: 4px;
+            outline: none;
+            border: none;
+        }
+        #alert p{
+            color: rgb(85, 83, 83);
+            position: relative;
+            bottom: 10px;
+        }
+        #alert button
+        {
+            color: white;
+            background-color: rgb(0, 98, 255);
+            width: 10vw;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        button{
+            border: none;
+        }
+        .navLogo img{
+            height: 30px;
+        }
+        .navLogo span{
+            position: relative;
+            bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="navLogo">
+            <img src="icons8-facebook-48.png" alt="">
+            <span>Milao</span>
+        </div>
+        <div class="nav">
+            <div class="navItems">Search Naukari</div>
+            <div class="navItems">Comany Review</div>
+            <div class="navItems">Find Salaries</div>
+        </div>
+        <div class="navIcons">
+            <img src="icons8-moon-and-stars-24.png" alt="">
+            <img id="rectangle" src="icons8-rectangle-24.png" alt="">
+        </div>
+        <div class="navProfile">
+            <img src="pexels-pixabay-220453.jpg" alt="">
+            <span>John Doe</span>
+        </div>
+    </div>
+
+
+    <div id="searchBar">
+        <div id="searchTags">
+            <img src="icons8-search-24.png">
+            <span class="tags">Product Designer&nbsp;&nbsp; &nbsp;&nbsp; x</span>
+            <span class="tags">UI Designer&nbsp;&nbsp; x</span>
+        </div>
+        <div class="location">
+            <img src="icons8-location-48.png" alt="">
+            <span>New Delhi,India</span>
+        </div>
+        <div class="searchJob">
+            <img src="icons8-shopping-bag-48.png" alt="">
+            <span>Job type</span>
+        </div>
+        <div class="searchSalary">
+            <img src="icons8-debit-card-48.png" alt="">
+            <span>Salary Range</span>
+        </div>
+        <button>Find Job</button>
+    </div>
+
+    <div id="rightConatiner">
+        <h3>Showing 46 Jobs</h3>
+        <div id="cardContainer">
+            <div class="card">
+                <img class="cardImage" src="icons8-comments-48.png" alt="">
+                <h4>UI / UX Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-facebook-48.png" alt="">
+                <h4>Sr. Product Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-twitter-48.png" alt="">
+                <h4>UI / UX Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-instagram-old-48.png" alt="">
+                <h4>Product Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-bookmark-48.png" alt="">
+                <h4>UI / UX Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-linkedin-48.png" alt="">
+                <h4>UI Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-comments-48.png" alt="">
+                <h4>UI / UX Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-instagram-old-48.png" alt="">
+                <h4>UI / UX Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-twitter-48.png" alt="">
+                <h4>UI / UX Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-bookmark-48.png" alt="">
+                <h4>Sr. Product Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="icons8-comments-48.png" alt="">
+                <h4>User Experience Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+
+
+            </div>
+
+            <div class="card">
+                <img class="cardImage" src="" alt="">
+                <h4>Product Designer</h4>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores similique, sequi, laboriosam
+                    saepe consequuntur aperiam reprehenderit sunt </p>
+                <button>Full Time</button>
+                <button>Min. 1 Year</button>
+                <button>Senior Level</button>
+                <div class="cardButton">
+                    <button class="cb1">Apply Now</button><button>Messages</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="leftContainer">
+        <div id="alert">
+            <h4>Create Job Alert</h4>
+            <p>Create a Job alert now and never miss a job</p>
+            <input type="search" placeholder="Enter job keyword">
+            <br>
+            <button>Create Job Alert</button>
+        </div>
+        
+        <div class="empOptions">
+            <h4>Type Of Employment</h4>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Full Time Jobs</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Part Time Jobs</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Remote Jobs</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Internships Jobs</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Contract</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Training Jobs</span>
+                <span class="numbers">56</span>
+            </div>
+        </div>
+
+        <div class="empOptions">
+            <h4>Seniority Level</h4>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Student Level</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Entry Level</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Mid Level</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Senior Level</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">Director</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">VP or Above</span>
+                <span class="numbers">56</span>
+            </div>
+        </div>
+
+        <div class="empOptions">
+            <h4>Salary Ranges</h4>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">$700 - $1000</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">$1000 - $1200</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">$1200 - $1400</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">$1400 - $1800</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">$1800 - $3000</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">$3000 - $4000</span>
+                <span class="numbers">56</span>
+            </div>
+            <div class="emptype">
+                <input type="checkbox">
+                <span class="type">$4000 - $5500</span>
+                <span class="numbers">56</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
